@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 
-import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
+
 import { Container } from "react-bootstrap";
 import Particle from "../Particle";
 import { motion } from "framer-motion";

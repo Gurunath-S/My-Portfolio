@@ -1,0 +1,50 @@
+.space-object {
+    position: fixed;
+    z-index: 1000;
+    pointer-events: none;
+    animation: fly var(--duration) linear forwards;
+    /* Rotate the object dynamically so front points toward destination */
+    transform: rotate(var(--angle));
+}
+
+@keyframes fly {
+    0% {
+        top: var(--start-y);
+        left: var(--start-x);
+    }
+
+    100% {
+        top: var(--end-y);
+        left: var(--end-x);
+    }
+}
+
+.comet {
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.8),
+        0 0 40px 10px rgba(0, 210, 255, 0.6);
+}
+
+/* 
+  Since the comet's div is rotated by --angle to face its destination (0 degrees is moving right), 
+  the tail must stretch backward (to the left) 
+*/
+.comet::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.8));
+    transform: translateY(-50%);
+}
+
+.asteroid {
+    background-color: #8b8378;
+    /* Asymmetrical shape for realistic rock look */
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.6),
+        0 0 10px rgba(0, 0, 0, 0.3);
+}
