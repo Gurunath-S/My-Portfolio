@@ -2,16 +2,12 @@
   Gurunath's Developer Portfolio<br/>
 </h2>
 <div align="center">
-  <img alt="Demo" src="./Images/readme-img1.png" />
+  <!-- <img alt="Demo" src="./Images/readme-img1.png" /> -->
 </div>
 
 <br/>
 
 <center>
-
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) &nbsp;
-[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com) &nbsp;
-[![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com) &nbsp;
 
 </center>
 
