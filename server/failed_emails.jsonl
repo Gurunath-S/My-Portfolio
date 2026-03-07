@@ -1,0 +1,2 @@
+{"timestamp": "2026-03-07T07:29:51.807353Z", "error": "400 Client Error: Bad Request for url: https://api.emailjs.com/api/v1.0/email/send", "payload": {"test": "payload"}}
+{"timestamp": "2026-03-07T07:29:59.314782Z", "error": "400 Client Error: Bad Request for url: https://api.emailjs.com/api/v1.0/email/send", "payload": {"test": "payload"}}

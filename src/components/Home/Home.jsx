@@ -3,9 +3,9 @@ import { Container, Row, Col } from "react-bootstrap";
 import homeLogo from "../../Assets/home-main.svg";
 import Particle from "../Particle";
 import Home2 from "./Home2";
-import Type from "./Type";
 import ParticlePortrait from "./ParticlePortrait";
 import { motion } from "framer-motion";
+import Typewriter from "typewriter-effect";
 
 function Home() {
   return (
@@ -18,36 +18,45 @@ function Home() {
 
 
               <motion.h1
-                style={{ paddingBottom: 0 }}
-                className="heading"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-              >
-                Hi There!{" "}
-                <span className="wave" role="img" aria-labelledby="wave">
-                  👋🏻
-                </span>
-              </motion.h1>
-
-              <motion.h1
                 className="heading-name"
-                style={{ marginBottom: 0 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                style={{
+                  paddingBottom: 15,
+                  marginBottom: 0,
+                  fontSize: "3rem",
+                  textAlign: "left"
+                }}
               >
-                I'M
-                <strong className="main-name"> Guru</strong>
+                <Typewriter
+                  onInit={(typewriter) => {
+                    typewriter
+                      .pauseFor(400)
+                      .typeString('hi <span class="wave" role="img" aria-labelledby="wave">👋🏻</span>, <strong class="main-name">guru</strong> here.')
+                      .start();
+                  }}
+                  options={{
+                    cursor: '|',
+                    autoStart: false,
+                    loop: false,
+                    delay: 60
+                  }}
+                />
               </motion.h1>
 
               <motion.div
-                style={{ paddingLeft: 50, paddingTop: 0, textAlign: "left" }}
+                style={{ paddingLeft: 0, paddingTop: 0, textAlign: "left" }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.35 }}
               >
-                <Type />
+                <motion.p
+                  className="home-about-body"
+                  style={{ fontSize: "0.8rem", paddingTop: "0px", color: "#e2c6ff", maxWidth: "80%", fontWeight: 300, lineHeight: 1.6 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.35 }}
+                >
+                  I'm a Software Engineer and Full Stack Developer based in India, currently working at a startup where I build and maintain real-world applications. I enjoy working across different technologies and continuously learning to create scalable and impactful products.
+                </motion.p>
               </motion.div>
             </Col>
 

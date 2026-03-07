@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import Preloader from "../src/components/Pre";
 import Navbar from "./components/Navbar";
-import Home from "./components/Home/Home";
-import About from "./components/About/About";
-import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer";
-import Contact from "./components/Contact/Contact";
 import Cursor from "./components/Cursor";
 import BackToTop from "./components/BackToTop";
+
+// Lazy Loaded Components for Code Splitting
+const Home = lazy(() => import("./components/Home/Home"));
+const About = lazy(() => import("./components/About/About"));
+const Projects = lazy(() => import("./components/Projects/Projects"));
+const Contact = lazy(() => import("./components/Contact/Contact"));
 
 import "./style.css";
 import "./App.css";
@@ -30,10 +32,12 @@ function App() {
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         <Navbar />
         <div className="main-content">
-          <div id="home"><Home /></div>
-          <div id="about"><About /></div>
-          <div id="projects"><Projects /></div>
-          <div id="contact"><Contact /></div>
+          <Suspense fallback={<Preloader load={true} />}>
+            <div id="home"><Home /></div>
+            <div id="about"><About /></div>
+            <div id="projects"><Projects /></div>
+            <div id="contact"><Contact /></div>
+          </Suspense>
         </div>
         <Footer />
         <BackToTop />

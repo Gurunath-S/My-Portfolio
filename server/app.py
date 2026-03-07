@@ -1,6 +1,8 @@
 import os
 import requests
 import threading
+import json
+from datetime import datetime
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
@@ -20,13 +22,25 @@ EMAILJS_PRIVATE_KEY = os.getenv("EMAILJS_PRIVATE_KEY")
 def send_email_background(payload, headers):
     try:
         # We send the request securely from the backend to the EmailJS API in the background
-        requests.post(
+        response = requests.post(
             'https://api.emailjs.com/api/v1.0/email/send',
             json=payload,
             headers=headers
         )
+        response.raise_for_status()
     except Exception as e:
         print(f"Background email failed: {str(e)}")
+        # Dead-Letter Queue: log the failed payload securely
+        try:
+            dlq_entry = {
+                "timestamp": datetime.utcnow().isoformat() + "Z",
+                "error": str(e),
+                "payload": payload
+            }
+            with open("failed_emails.jsonl", "a") as f:
+                f.write(json.dumps(dlq_entry) + "\n")
+        except Exception as dlq_e:
+            print(f"DLQ logic failed: {str(dlq_e)}")
 
 @app.route('/api/contact', methods=['POST'])
 def contact():

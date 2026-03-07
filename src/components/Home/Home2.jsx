@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/avatar.svg";
+import myImg from "../../Assets/cartoon.png";
 import { ImPointRight } from "react-icons/im";
 import Tilt from "react-parallax-tilt";
 import { AiFillGithub } from "react-icons/ai";
@@ -18,12 +18,26 @@ function Home2() {
               ABOUT <span className="purple"> ME </span>
             </h1>
             <p className="home-about-body">
-              I am a <span className="purple">Software Engineer</span> based in <span className="purple">Tiruppur</span>, currently working in a startup environment where I build and scale modern web applications. With a <span className="purple">Bachelor’s in Computer Science</span> and an <span className="purple">MCA</span>, I combine strong academic fundamentals with practical product development experience. I specialize in full-stack development using the <b className="purple">MERN stack</b>, building scalable backend systems with <b className="purple">Node.js</b> and crafting responsive frontends with <b className="purple">React.js</b>.
-              <br />
-              <br />
-              I also work with tools like <b className="purple">MongoDB, Firebase, Clerk,</b> and <b className="purple">Expo Router</b> to deliver secure, real-time solutions. I’m focused on creating efficient, scalable architectures and exploring <b className="purple">AI-driven technologies</b> to build smarter digital products. I am particularly interested in <b className="purple">Machine Learning</b> and integrating <b className="purple">Large Language Models (LLMs)</b> to enhance application capabilities. Beyond the screen, I stay balanced and grounded by:
+              I'm a <span className="purple">Software Engineer</span> based in <span className="purple">Tiruppur, India</span>, currently working at a startup where I build and maintain real-world applications across the full stack. I enjoy turning ideas into reliable products and working on both frontend experiences and backend systems.
+              <br /><br />
+              With a <span className="purple">Bachelor's in Computer Science</span> and an <span className="purple">MCA</span>, I combine strong academic fundamentals with practical development experience. My work mainly involves designing scalable APIs, building responsive user interfaces, and improving product features in production environments.
+              <br /><br />
+              While I often work with the <b className="purple">MERN stack</b>, I don't limit myself to a single ecosystem. I enjoy exploring different technologies and tools to find the right solution for a problem and continuously grow as an engineer.
             </p>
-            <ul style={{ listStyleType: "none", paddingLeft: "15px", fontSize: "1.2em", color: "white" }}>
+
+            <h4 style={{ color: "white", marginTop: "15px", marginBottom: "10px", fontSize: "1.1em" }}>
+              Technologies I work with
+            </h4>
+            <ul style={{ listStyleType: "none", paddingLeft: "0", display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "20px" }}>
+              {["JavaScript (ES6+)", "TypeScript", "React.js", "Node.js", "Express.js", "MongoDB", "Firebase", "Prisma", "Expo / React Native"].map(tech => (
+                <li key={tech} style={{ background: "rgba(205, 95, 248, 0.15)", border: "1px solid rgba(205, 95, 248, 0.4)", borderRadius: "20px", padding: "4px 14px", fontSize: "0.85em", color: "#e2c6ff" }}>
+                  {tech}
+                </li>
+              ))}
+            </ul>
+
+            {/* <h4 style={{ color: "white", marginBottom: "10px", fontSize: "1.1em" }}>Outside of work</h4>
+            <ul style={{ listStyleType: "none", paddingLeft: "15px", fontSize: "1.1em", color: "white" }}>
               <li className="about-activity">
                 <ImPointRight /> Watching Football & Exploring Tactical Analysis
               </li>
@@ -33,11 +47,11 @@ function Home2() {
               <li className="about-activity">
                 <ImPointRight /> Watching Movies & Listening to Music
               </li>
-            </ul>
+            </ul> */}
           </Col>
           <Col md={4} className="myAvtar">
             <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" />
+              <img src={myImg} className="img-fluid" alt="avatar" style={{ maxWidth: "250px", width: "100%", borderRadius: "5%" }} />
             </Tilt>
           </Col>
         </Row>
