@@ -530,6 +530,7 @@ html {
 /* --------- */
 #root .project-section {
   position: relative;
+  z-index: 1;
   padding-top: 150px;
   padding-bottom: 30px;
   background-image: var(--section-background-color);
@@ -643,6 +644,7 @@ html {
 
 #root .about-section {
   position: relative;
+  z-index: 1;
   padding-top: 150px;
   padding-bottom: 30px;
   background-image: var(--section-background-color);
@@ -727,6 +729,7 @@ html {
 
 #root .resume-section {
   position: relative;
+  z-index: 1;
   padding-top: 110px;
   padding-bottom: 30px;
   background-image: var(--section-background-color);
